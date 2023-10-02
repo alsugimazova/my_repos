@@ -1,18 +1,21 @@
 from chython import smiles
 from chython.reactor import reactions
-from itertools import product
-with open('reag1.txt') as f:
+reagents_path_1 = 'reag1.txt'
+reagents_path_2 = 'reag2.txt'
+with open(reagents_path_1) as f:
     for line in f:
-        a = line.strip()
-        a = smiles(a)
-with open('reag2.txt') as f:
+        reagent_1 = line.strip()
+        reagent_1 = smiles(reagent_1)
+with open(reagents_path_2) as f:
     for line in f:
-        b = line.strip()
-        b = smiles(b)
+        reagent_2 = line.strip()
+        reagent_2 = smiles(reagent_2)
 try: 
-    prod = str(next(reactions.suzuki(a, b)))
-    product = prod.split(">>")
-    with open('product.txt','w') as f:
-        f.write(product[1])
+    reaсtion = next(reactions.suzuki(reagent_1,reagent_2))
 except:
     print('реакция не идет')
+for mol in reaсtion.products:
+    mol = str(mol)
+with open('product.txt','w') as f:
+    f.write(mol)
+    
