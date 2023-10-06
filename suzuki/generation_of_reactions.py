@@ -9,18 +9,16 @@ for mol in list_of_molecules:
     mol = smiles(mol)
     reagent_1 = mol
     counter += 1
-    for i in list_of_molecules[counter:]:
-        check = True
-        i  = smiles(i)
-        reagent_2 = i
+    for molec in list_of_molecules[counter:]:
+        molec  = smiles(molec)
+        reagent_2 = molec
         try:
             reaсtion = next(reactions.suzuki(reagent_1,reagent_2))
         except:
-            check = False
-        if check == True: 
-            for moll in reaсtion.products:
-                moll = str(moll)
-                product.append(moll)
+            continue
+        for molecule in reaсtion.products:
+            molecule = str(molecule)
+            product.append(molecule)
 with open('product.txt','w') as f:
     for mol in product:
         f.write(f'{mol}\n')
