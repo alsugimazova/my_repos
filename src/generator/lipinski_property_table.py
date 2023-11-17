@@ -30,10 +30,6 @@ def main(input_path, output_path):
             'log P': rule_4}       
     lipinsky = pd.DataFrame(mol_props)
     lipinsky.to_csv(output_path, index = False)
-    lipinsky.hist(column='number of Hydrogen Bond Donors', color = 'black')
-    lipinsky.hist(column='number of Hydrogen Bond Acceptors',color = 'pink')
-    lipinsky.hist(column='molecular weight', color = 'grey')
-    lipinsky.hist(column='log P', color = 'green')
 
 if __name__ == '__main__':
     main('products.txt','lipinski_properties.csv')
