@@ -1,0 +1,21 @@
+{
+  "classifier name": "DummyClassifier",
+  "confusion_matrix train set": [
+    0,
+    0,
+    431,
+    773
+  ],
+  "confusion_matrix test set": [
+    0,
+    0,
+    195,
+    321
+  ],
+  "balanced_accuracy_score train set": 0.6420265780730897,
+  "balanced_accuracy_score test set": 0.622093023255814,
+  "precision_score train set": 1.0,
+  "precision_score test set": 1.0,
+  "recall_score train set": 0.6420265780730897,
+  "recall_score test set": 0.622093023255814
+}
