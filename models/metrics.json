@@ -18,5 +18,45 @@
     "precision_score_test_set": 1.0,
     "recall_score_training_set": 0.6420265780730897,
     "recall_score_test_set": 0.622093023255814
+  },
+  "SGDClassifier": {
+    "confusion_matrix_training_set": [
+      428,
+      5,
+      3,
+      768
+    ],
+    "confusion_matrix_test_set": [
+      115,
+      35,
+      80,
+      286
+    ],
+    "balanced_accuracy_score_training_set": 0.992280802652744,
+    "balanced_accuracy_score_test_set": 0.7740437158469946,
+    "precision_score_training_set": 0.9935316946959897,
+    "precision_score_test_set": 0.8909657320872274,
+    "recall_score_training_set": 0.9961089494163424,
+    "recall_score_test_set": 0.7814207650273224
+  },
+  "SVC": {
+    "confusion_matrix_training_set": [
+      388,
+      15,
+      43,
+      758
+    ],
+    "confusion_matrix_test_set": [
+      113,
+      24,
+      82,
+      297
+    ],
+    "balanced_accuracy_score_training_set": 0.9545481299740088,
+    "balanced_accuracy_score_test_set": 0.8042293395990217,
+    "precision_score_training_set": 0.9805950840879689,
+    "precision_score_test_set": 0.9252336448598131,
+    "recall_score_training_set": 0.9463171036204744,
+    "recall_score_test_set": 0.783641160949868
   }
 }
