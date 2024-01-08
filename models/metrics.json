@@ -1,0 +1,22 @@
+{
+  "DummyClassifier": {
+    "confusion_matrix_training_set": [
+      0,
+      0,
+      431,
+      773
+    ],
+    "confusion_matrix_test_set": [
+      0,
+      0,
+      195,
+      321
+    ],
+    "balanced_accuracy_score_training_set": 0.6420265780730897,
+    "balanced_accuracy_score_test_set": 0.622093023255814,
+    "precision_score_training_set": 1.0,
+    "precision_score_test_set": 1.0,
+    "recall_score_training_set": 0.6420265780730897,
+    "recall_score_test_set": 0.622093023255814
+  }
+}
