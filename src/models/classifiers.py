@@ -10,6 +10,7 @@ from sklearn.metrics import precision_score
 from sklearn.metrics import balanced_accuracy_score
 from sklearn.svm import SVC
 import pickle 
+import json
 
 df = pd.read_csv('data/interim/jak2_pIC50_data.csv')
 
@@ -28,50 +29,29 @@ y_test = y_test.to_numpy()
 X_train = list(X_train)
 X_test = list(X_test)
 
+def get_confusion_matrix(y_true, y_pred):
+        conf_matrix = confusion_matrix(y_true= y_true, y_pred= y_pred)
+        return list(map(int, [conf_matrix[0][0], conf_matrix[0][1], conf_matrix[1][0], conf_matrix[1][1]]))
+    
 def metrics(classifier_name, y_train_predict, y_test_predict, y_train, y_test):
-    
-    cm_train = confusion_matrix(y_true=y_train_predict, y_pred=y_train)
-    cm_test = confusion_matrix(y_true=y_test_predict, y_pred=y_test)
-    
-    def list_view(array):
-        lst = []
-        for i in array.tolist():
-            for j in i:
-                lst.append(j)
-        return lst
-
-    cmatrix_train = list_view(cm_train)
-    cmatrix_test = list_view(cm_test)
-    
-    rs_train = recall_score(y_true=y_train_predict, y_pred=y_train)
-    rs_test = recall_score(y_true=y_test_predict, y_pred=y_test)
-    
-    ps_train = precision_score(y_true=y_train_predict, y_pred=y_train)
-    ps_test = precision_score(y_true=y_test_predict, y_pred=y_test)
-    
-    bal_ac_train = balanced_accuracy_score(y_true=y_train_predict, y_pred=y_train)
-    bal_ac_test = balanced_accuracy_score(y_true=y_test_predict, y_pred=y_test)
-    
-    import json
-    
     with open('models/metrics.json', 'r') as file:
         data = json.load(file)
         
-    data[classifier_name] = {'confusion_matrix_training_set': cmatrix_train,
-                             'confusion_matrix_test_set': cmatrix_test,
-                             'balanced_accuracy_score_training_set': bal_ac_train,
-                             'balanced_accuracy_score_test_set': bal_ac_test,
-                             'precision_score_training_set':ps_train,
-                             'precision_score_test_set': ps_test,
-                             'recall_score_training_set': rs_train,
-                             'recall_score_test_set': rs_test
+    data[classifier_name] = {'confusion_matrix_training_set': get_confusion_matrix(y_train, y_train_predict),
+                             'confusion_matrix_test_set': get_confusion_matrix(y_test, y_test_predict),
+                             'balanced_accuracy_score_training_set': balanced_accuracy_score(y_true=y_train,y_pred=y_train_predict),
+                             'balanced_accuracy_score_test_set': balanced_accuracy_score(y_true=y_test, y_pred=y_test_predict),
+                             'precision_score_training_set':precision_score(y_true=y_train, y_pred=y_train_predict),
+                             'precision_score_test_set': precision_score(y_true=y_test, y_pred=y_test_predict),
+                             'recall_score_training_set': recall_score(y_true=y_train, y_pred=y_train_predict),
+                             'recall_score_test_set': recall_score(y_true=y_test, y_pred=y_test_predict)
                             }
     
     with open('models/metrics.json', 'w') as file:
         json.dump(data, file, indent=2)
         
         
-clf_sgd = make_pipeline(StandardScaler(), SGDClassifier())
+clf_sgd = SGDClassifier()
 clf_sgd.fit(X_train, y_train)
 
 y_train_predict_sgd = clf_sgd.predict(X_train)
@@ -82,7 +62,7 @@ metrics_clf_sgd = metrics('SGDClassifier', y_train_predict_sgd, y_test_predict_s
 with open("models/SGDClassifier.pkl", 'wb') as file: 
     pickle.dump(clf_sgd, file) 
 
-clf_svc = make_pipeline(StandardScaler(), SVC())
+clf_svc = SVC()
 clf_svc.fit(X_train, y_train)
 
 y_train_predict_svc = clf_svc.predict(X_train)
@@ -92,3 +72,4 @@ metrics_clf_sgd = metrics('SVC', y_train_predict_svc, y_test_predict_svc, y_trai
 
 with open("models/SVC.pkl", 'wb') as file: 
     pickle.dump(clf_svc, file) 
+    
