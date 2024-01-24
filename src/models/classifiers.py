@@ -9,6 +9,7 @@ from sklearn.metrics import recall_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import balanced_accuracy_score
 from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
 import pickle 
 import json
 
@@ -50,26 +51,14 @@ def metrics(classifier_name, y_train_predict, y_test_predict, y_train, y_test):
     with open('models/metrics.json', 'w') as file:
         json.dump(data, file, indent=2)
         
+rf_clf = RandomForestClassifier()
+rf_clf.fit(X_train, y_train)
+
+y_train_predict = rf_clf.predict(X_train)
+y_test_predict = rf_clf.predict(X_test)
         
-clf_sgd = SGDClassifier()
-clf_sgd.fit(X_train, y_train)
+metrics_rf_clf = metrics('RandomForestClassifier', y_train_predict, y_test_predict, y_train, y_test)
 
-y_train_predict_sgd = clf_sgd.predict(X_train)
-y_test_predict_sgd = clf_sgd.predict(X_test)
-        
-metrics_clf_sgd = metrics('SGDClassifier', y_train_predict_sgd, y_test_predict_sgd, y_train, y_test)
-
-with open("models/SGDClassifier.pkl", 'wb') as file: 
-    pickle.dump(clf_sgd, file) 
-
-clf_svc = SVC()
-clf_svc.fit(X_train, y_train)
-
-y_train_predict_svc = clf_svc.predict(X_train)
-y_test_predict_svc = clf_svc.predict(X_test)
-
-metrics_clf_sgd = metrics('SVC', y_train_predict_svc, y_test_predict_svc, y_train, y_test)
-
-with open("models/SVC.pkl", 'wb') as file: 
-    pickle.dump(clf_svc, file) 
+with open("models/RFClassifier.pkl", 'wb') as file: 
+    pickle.dump(rf_clf , file) 
     

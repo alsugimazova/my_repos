@@ -58,5 +58,25 @@
     "precision_score_test_set": 0.8066298342541437,
     "recall_score_training_set": 0.9586028460543338,
     "recall_score_test_set": 0.9096573208722741
+  },
+  "RandomForestClassifier": {
+    "confusion_matrix_training_set": [
+      431,
+      0,
+      0,
+      773
+    ],
+    "confusion_matrix_test_set": [
+      126,
+      69,
+      29,
+      292
+    ],
+    "balanced_accuracy_score_training_set": 1.0,
+    "balanced_accuracy_score_test_set": 0.7779055835130602,
+    "precision_score_training_set": 1.0,
+    "precision_score_test_set": 0.8088642659279779,
+    "recall_score_training_set": 1.0,
+    "recall_score_test_set": 0.9096573208722741
   }
 }
