@@ -61,22 +61,22 @@
   },
   "RandomForestClassifier": {
     "confusion_matrix_training_set": [
-      431,
-      0,
-      0,
-      773
+      410,
+      21,
+      6,
+      767
     ],
     "confusion_matrix_test_set": [
-      126,
-      69,
-      29,
-      292
+      124,
+      71,
+      27,
+      294
     ],
-    "balanced_accuracy_score_training_set": 1.0,
-    "balanced_accuracy_score_test_set": 0.7779055835130602,
-    "precision_score_training_set": 1.0,
-    "precision_score_test_set": 0.8088642659279779,
-    "recall_score_training_set": 1.0,
-    "recall_score_test_set": 0.9096573208722741
+    "balanced_accuracy_score_training_set": 0.9717570678616774,
+    "balanced_accuracy_score_test_set": 0.7758926431823627,
+    "precision_score_training_set": 0.9733502538071066,
+    "precision_score_test_set": 0.8054794520547945,
+    "recall_score_training_set": 0.9922380336351876,
+    "recall_score_test_set": 0.9158878504672897
   }
 }

@@ -1,14 +1,9 @@
 import pandas as pd
 import numpy as np
-from rdkit import Chem
-from sklearn.linear_model import SGDClassifier
-from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import make_pipeline
-from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
+from sklearn.metrics import confusion_matrix
 from sklearn.metrics import recall_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import balanced_accuracy_score
-from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 import pickle 
 import json
@@ -34,7 +29,16 @@ def get_confusion_matrix(y_true, y_pred):
         conf_matrix = confusion_matrix(y_true= y_true, y_pred= y_pred)
         return list(map(int, [conf_matrix[0][0], conf_matrix[0][1], conf_matrix[1][0], conf_matrix[1][1]]))
     
-def metrics(classifier_name, y_train_predict, y_test_predict, y_train, y_test):
+def train(X_train, y_train):
+    clf = RandomForestClassifier(max_depth=15)
+    clf.fit(X_train, y_train)
+    return clf
+    
+def metrics(classifier_name, clf, X_train, X_test, y_train, y_test):
+
+    y_train_predict = clf.predict(X_train)
+    y_test_predict = clf.predict(X_test)
+
     with open('models/metrics.json', 'r') as file:
         data = json.load(file)
         
@@ -46,19 +50,19 @@ def metrics(classifier_name, y_train_predict, y_test_predict, y_train, y_test):
                              'precision_score_test_set': precision_score(y_true=y_test, y_pred=y_test_predict),
                              'recall_score_training_set': recall_score(y_true=y_train, y_pred=y_train_predict),
                              'recall_score_test_set': recall_score(y_true=y_test, y_pred=y_test_predict)
-                            }
+                             }
     
     with open('models/metrics.json', 'w') as file:
         json.dump(data, file, indent=2)
         
-rf_clf = RandomForestClassifier()
-rf_clf.fit(X_train, y_train)
+def save_model(clf, file_name):
+    with open(f'models/{file_name}', 'wb') as file: 
+         pickle.dump(clf , file) 
+ 
+def main():
+    rf_clf = train(X_train, y_train)
+    metrics('RandomForestClassifier', rf_clf, X_train, X_test, y_train, y_test)
+    save_model(rf_clf, 'RFClassifier.pkl')
 
-y_train_predict = rf_clf.predict(X_train)
-y_test_predict = rf_clf.predict(X_test)
-        
-metrics_rf_clf = metrics('RandomForestClassifier', y_train_predict, y_test_predict, y_train, y_test)
-
-with open("models/RFClassifier.pkl", 'wb') as file: 
-    pickle.dump(rf_clf , file) 
-    
+if __name__ == '__main__':
+    main()
