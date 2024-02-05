@@ -5,6 +5,7 @@ from sklearn.metrics import recall_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import balanced_accuracy_score
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import GridSearchCV
 import pickle 
 import json
 
@@ -30,9 +31,17 @@ def get_confusion_matrix(y_true, y_pred):
         return list(map(int, [conf_matrix[0][0], conf_matrix[0][1], conf_matrix[1][0], conf_matrix[1][1]]))
     
 def train(X_train, y_train):
-    clf = RandomForestClassifier(max_depth=15)
-    clf.fit(X_train, y_train)
-    return clf
+
+    parametrs = {'n_estimators': range (10, 200, 10),
+             'max_depth': range (10, 25, 1),
+             'max_features': ['sqrt', 'log2']
+            }
+    clf = RandomForestClassifier(random_state=42)
+    grid = GridSearchCV(clf, parametrs, cv=5)
+    grid.fit(X_train, y_train)
+    print(grid.best_params_)
+    model = grid.best_estimator_ 
+    return model
     
 def metrics(classifier_name, clf, X_train, X_test, y_train, y_test):
 
