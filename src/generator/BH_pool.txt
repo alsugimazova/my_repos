@@ -1,5 +1,5 @@
 c1(C=O)c[nH]c2c1cc(cc2)Cl.c1(cc2c(sc(N)n2)c(C)c1NC(c1ccc(c(C)c1)C)=O)C>>c12c(sc(Nc3ccc4[nH]cc(c4c3)C=O)n1)c(C)c(c(c2)C)NC(c1ccc(c(C)c1)C)=O
 Fc1cccc(c1)-n1c(c(c(CCC)n1)C=O)Cl.c1(cc2c(sc(N)n2)c(C)c1NC(c1ccc(c(C)c1)C)=O)C>>c12c(sc(Nc3c(c(CCC)nn3-c3cc(ccc3)F)C=O)n1)c(C)c(c(c2)C)NC(c1ccc(c(C)c1)C)=O
 FC(F)(F)c1cccc(N2CCN(CC2)c2nc(cc(COC)n2)Cl)c1.c1(cc2c(sc(N)n2)c(C)c1NC(c1ccc(c(C)c1)C)=O)C>>FC(F)(F)c1cccc(N2CCN(CC2)c2nc(cc(COC)n2)Nc2nc3c(c(C)c(NC(c4ccc(C)c(C)c4)=O)c(C)c3)s2)c1
-c1cc(ccc1)-c1nnc(o1)Cn1c(=O)n(-c2cc(ccc2)Cl)cc1.c1(cc2c(sc(N)n2)c(C)c1NC(c1ccc(c(C)c1)C)=O)C>>c1cc(ccc1)-c1oc(CN2C(N(C=C2)c2cccc(c2)Nc2nc3c(c(C)c(NC(c4ccc(C)c(C)c4)=O)c(c3)C)s2)=O)nn1
+c1(cc2c(sc(N)n2)c(C)c1NC(c1ccc(c(C)c1)C)=O)C.c1cc(ccc1)-c1nnc(CN2C(=O)N(C=C2)c2cc(ccc2)Cl)o1>>c1cc(ccc1)-c1oc(CN2C(N(C=C2)c2cccc(c2)Nc2nc3c(c(C)c(NC(c4ccc(C)c(C)c4)=O)c(c3)C)s2)=O)nn1
 c1(cc2c(sc(N)n2)c(C)c1NC(c1ccc(c(C)c1)C)=O)C.c1cc(ccc1O)C(=O)Nc1ccc(OC)c(c1)Cl>>c1cc(ccc1O)C(Nc1ccc(c(Nc2nc3c(c(c(c(C)c3)NC(=O)c3cc(c(cc3)C)C)C)s2)c1)OC)=O
