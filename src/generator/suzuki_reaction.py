@@ -13,20 +13,14 @@ def run(input_path, output_path):
     dataset = read(input_path)
     with open(output_path,'w') as f:
         for mols_pair in tqdm(combinations(dataset, 2)):
-            reagent_1 = mols_pair[0]
-            reagent_1 = Chem.MolToSmiles(Chem.MolFromSmiles(reagent_1))
-            reagent_1 = smiles(reagent_1)
+            reagent_1 = smiles(mols_pair[0])
             reagent_1.canonicalize()
-            reagent_2 = mols_pair[1]
-            reagent_2 = Chem.MolToSmiles(Chem.MolFromSmiles(reagent_2))
-            reagent_2 = smiles(reagent_2)
+            reagent_2 = smiles(mols_pair[1])
             reagent_2.canonicalize()
-            for reaction in reactions.suzuki(reagent_1, reagent_2):
-                f.write(f'{str(reaction.products[0])}\n')
-                break
-            for reaction in reactions.suzuki_amide(reagent_1, reagent_2):
-                f.write(f'{str(reaction.products[0])}\n')
+            for reaction in reactions.suzuki_miyaura(reagent_1, reagent_2):
+                f.write(f'{str(reaction)}\n')
                 break
 
 if __name__ == '__main__':
-    run('input_path.txt', 'suzuki_products.txt')               
+    run('src/generator/test.txt', 'src/generator/SM_pool.txt')
+    

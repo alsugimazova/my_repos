@@ -42,7 +42,11 @@ class Predictor:
     def main(self):
         self.load_model()
         with open(self.input_path) as f:
-            list_of_molecules = [line.rstrip() for line in f]
+            list_of_molecules = []
+            for line in f:
+                str = line.split('>>')
+                list_of_molecules.append(str[1])
+
         with open(self.output_path,'w') as f:
             for mol in list_of_molecules:
                 mol = self.prepare_molecule(mol)
