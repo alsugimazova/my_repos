@@ -1,0 +1,70 @@
+{
+    "Suzuki-Miyaura": {
+        "ligand": [
+            "CC(C)(C)P(C(C)(C)C)C(C)(C)C",
+            "c3c(P(c1ccccc1)c2ccccc2)cccc3",
+            "CC(C)(C)P(C1=CC=C(C=C1)N(C)C)C(C)(C)C",
+            "C1(CCCCC1)P(C2CCCCC2)C3CCCCC3",
+            "CC1=CC=CC=C1P(C2=CC=CC=C2C)C3=CC=CC=C3C",
+            "CCCCP(C12CC3CC(C1)CC(C3)C2)C45CC6CC(C4)CC(C6)C5",
+            "COc1cccc(c1c2ccccc2P(C3CCCCC3)C4CCCCC4)OC",
+            "CC(C)(C)P(C1=CC=C[CH]1)C(C)(C)C.CC(C)(C)P(C1=CC=C[CH]1)C(C)(C)C.[Fe]",
+            "P(c2ccccc2c1c(cc(cc1C(C)C)C(C)C)C(C)C)(C3CCCCC3)C4CCCCC4",
+            "C1=CC=C(C=C1)P([C-]2C=CC=C2)C3=CC=CC=C3.C1=CC=C(C=C1)P([C-]2C=CC=C2)C3=CC=CC=C3.[Fe+2]",
+            "O6c1c(cccc1P(c2ccccc2)c3ccccc3)C(c7cccc(P(c4ccccc4)c5ccccc5)c67)(C)C"
+        ],
+        "reagent": [
+            "[OH-].[Na+]",
+            "[Na+].OC([O-])=O",
+            "[F-].[Cs+]",
+            "[K+].[K+].[K+].[O-]P([O-])([O-])=O",
+            "[K+].[OH-]",
+            "[Li+].[O-]C(C)(C)C",
+            "CCN(CC)CC"
+        ],
+        "solvent": [
+            "CC#N.O",
+            "C1CCOC1.O",
+            "CN(C)C=O.O",
+            "CO.O"
+        ]
+    },
+    "Buchwald-Hartwig": {
+        "ligand": [
+            "CC(C)C1=CC(C(C)C)=CC(C(C)C)=C1C2=C(P(C3CCCCC3)C4CCCCC4)C=CC=C2",
+            "CC(C)C(C=C(C(C)C)C=C1C(C)C)=C1C2=CC=CC=C2P(C(C)(C)C)C(C)(C)C",
+            "CC(C)C1=CC(C(C)C)=CC(C(C)C)=C1C2=C(P(C(C)(C)C)C(C)(C)C)C(OC)=CC=C2OC",
+            "CC(C1=C(C2=C(OC)C=CC(OC)=C2P(C34CC5CC(C4)CC(C5)C3)C67CC8CC(C7)CC(C8)C6)C(C(C)C)=CC(C(C)C)=C1)C"
+        ],
+        "additive": [
+            "o1nccc1c2ccccc2",
+            "CCOC(=O)c1onc(C)c1",
+            "CCOC(=O)c1cc(C)on1",
+            "o1cc(cn1)c2ccccc2",
+            "o1ccc(n1)c2ccccc2",
+            "Cc1ccon1",
+            "c1ccc(-c2ncno2)cc1",
+            "Cc1oncc1",
+            "o1cc2ccccc2n1",
+            "Cc1onc(C)c1",
+            "COC(=O)c1oncc1",
+            "CCOC(=O)c1ccon1",
+            "CCOC(=O)c1cnoc1C",
+            "CCOC(=O)c1conc1",
+            "o1ncc2ccccc12",
+            "CCOC(=O)c1onc(OC)c1",
+            "Cc1cc(on1)c2ccccc2",
+            "C(N(Cc1ccccc1)c2ccon2)c3ccccc3",
+            "COC(=O)c1cc(on1)c2occc2",
+            "Fc1cccc(F)c1c2oncc2",
+            "C(N(Cc1ccccc1)c2oncc2)c3ccccc3",
+            "Cc1onc(c1)n2cccc2",
+            "COC(=O)c1cc(on1)c2sccc2"
+        ],
+        "base": [
+            "CN(C)P(N(C)C)(N(C)C)=NP(N(C)C)(N(C)C)=NCC",
+            "CN(C)/C(N(C)C)=N\\C(C)(C)C",
+            "CN1CCCN2CCCN=C12"
+        ]
+    }
+}
